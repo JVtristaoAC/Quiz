@@ -23,5 +23,7 @@ namespace Quiz.View
         {
             InitializeComponent();
         }
+
+    
     }
 }

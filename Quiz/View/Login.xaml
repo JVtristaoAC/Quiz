@@ -8,9 +8,11 @@
         Title="Login" 
         Height="720" Width="1280"
         WindowState="Maximized">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
@@ -21,18 +23,19 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Content="Quiz de Física" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
-        
-        <Label Content="Nome:" VerticalAlignment="Center" FontSize="50" Grid.Column="0" Grid.Row="1" Margin="10, 0, 0, 0"/>
-        <TextBox Grid.Row="1" x:Name="ent_name" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0, 0, 50, 0" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
+        <Label Content="Quiz de Física" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold"/>
 
-        <Label Content="Telefone:" VerticalAlignment="Center" FontSize="50" Grid.Row="2" Margin="10, 0, 0, 0"/>
-        <TextBox Grid.Row="2" x:Name="ent_telefone" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0, 0, 50,0" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
+        <Label Content="Nome:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="50" Grid.Column="0" Grid.Row="1" Margin="20"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="ent_name" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
 
-        <Label Content="Email:" VerticalAlignment="Center" FontSize="50" Grid.Row="3" Margin="10, 0, 0, 0"/>
-        <TextBox Grid.Row="3" x:Name="ent_email" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0, 0, 50,0" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
+        <Label Content="Telefone:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="50" Grid.Row="2" Margin="20"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="ent_telefone" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
 
-        <Button x:Name="btn_botao" Click="btn_botao_Click" Content="Continuar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Grid.Row="4" Padding="10" Background="Purple"/>
+        <Label Content="Email:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="50" Grid.Row="3" Margin="20"/>
+        <TextBox Grid.Row="3" Grid.Column="1" x:Name="ent_email" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
+
+
+        <Button x:Name="btn_botao" Click="btn_botao_Click" Content="Continuar" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Grid.Row="4" Padding="10" Background="#0373fc" />
 
     </Grid>
 </Window>

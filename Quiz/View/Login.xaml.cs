@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quiz.Data.Context;
+using Quiz.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,13 +24,29 @@ namespace Quiz.View
         public Login()
         {
             InitializeComponent();
+            
         }
 
         private void btn_botao_Click(object sender, RoutedEventArgs e)
         {
+            btn_botao.IsEnabled = false;
+
+            using var context = new QuizContext();
+            context.Database.EnsureCreated();
+            context.Usuarios.Add(new Usuarios
+            {
+                Nome = ent_name.Text,
+                Email = ent_email.Text,
+                Telefone = ent_telefone.Text
+
+            });
+            context.SaveChanges();
+
             Quiz1 janela = new Quiz1();
             janela.Show();
             this.Close();
+
+            
         }
     }
 }

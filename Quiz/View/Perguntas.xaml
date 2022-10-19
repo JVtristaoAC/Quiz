@@ -1,0 +1,31 @@
+﻿<Window x:Class="Quiz.View.Quiz1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Quiz.View"
+        mc:Ignorable="d"
+        Title="Perguntas"
+        Height="720" Width="1280"
+        WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="lbl_Pergunta" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
+        <RadioButton Content="" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20" />
+        <RadioButton Content="" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+        <RadioButton Content="" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+        <RadioButton Content="" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+
+    </Grid>
+</Window>
