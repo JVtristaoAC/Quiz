@@ -35,7 +35,7 @@
         <TextBox Grid.Row="3" Grid.Column="1" x:Name="ent_email" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="WhiteSmoke" VerticalContentAlignment="Center"/>
 
 
-        <Button x:Name="btn_botao" Click="btn_botao_Click" Content="Continuar" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Grid.Row="4" Padding="10" Background="#0373fc" />
+        <Button x:Name="btn_botao" Click="btn_botao_Click" Content="Continuar" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Grid.Row="4" Padding="10" Background="Purple" />
 
     </Grid>
 </Window>
