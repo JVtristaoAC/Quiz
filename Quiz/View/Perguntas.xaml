@@ -23,10 +23,10 @@
         </Grid.RowDefinitions>
 
         <Label x:Name="lbl_Pergunta" Grid.ColumnSpan="2"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40"/>
-        <RadioButton x:Name="lbl_Resposta1" Content="" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20" />
-        <RadioButton x:Name="lbl_Resposta2" Content="" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
-        <RadioButton x:Name="lbl_Resposta3" Content="" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
-        <RadioButton x:Name="lbl_Resposta4" Content="" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+        <RadioButton x:Name="rd_Resposta1" Content="" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+        <RadioButton x:Name="rd_Resposta2" Content="" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+        <RadioButton x:Name="rd_Resposta3" Content="" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
+        <RadioButton x:Name="rd_Resposta4" Content="" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left"  FontSize="40" Margin="20"/>
 
         <Button  x:Name="btn_botao" Click="btn_botao_Click"  Content="Continuar" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" Grid.Row="5" Padding="10" Background="Purple"/>
 
