@@ -32,7 +32,6 @@ namespace Quiz.View
             btn_botao.IsEnabled = false;
 
             using var context = new QuizContext();
-            context.Database.EnsureCreated();
             context.Usuarios.Add(new Usuarios
             {
                 Nome = ent_name.Text,

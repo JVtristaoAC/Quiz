@@ -10,7 +10,6 @@ namespace Quiz.Data.Entity
     { 
         public int Id { get; set; }
         public string Pergunta { get; set; }
-        public Respostas Respostas { get; set; }
 
 
     }
