@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Quiz.Data.Entity
 {
-    public class Perguntas
-    { 
+    public class PerguntaSorteada
+    {
         public int? Id { get; set; }
-        public string descricao { get; set; }
-
-
+        public string Descricao { get; set; }
+        public List<Alternativa> Lista_alternativas { get; set; }
     }
 }
