@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Quiz.Data.Entity
 {
-    public class Respostas
+    public class Alternativa
     {
         public int Id { get; set; }
-        public string Resposta { get; set; }
+        public string Descricao { get; set; }
         public int ID_pergunta { get; set; }
-        public bool Certa { get; set; }
+        public string Correta { get; set; }
     }
 }

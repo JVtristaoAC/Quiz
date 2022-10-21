@@ -9,7 +9,7 @@ namespace Quiz.Data.Entity
     public class Perguntas
     { 
         public int Id { get; set; }
-        public string Pergunta { get; set; }
+        public string descricao { get; set; }
 
 
     }

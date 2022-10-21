@@ -13,15 +13,16 @@ namespace Quiz.Data.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=nasciEM1606;database=quiz;")
+            //optionsBuilder.UseMySQL("server=localhost;port=3306;user=root;password=nasciEM1606;database=quiz;")
+            optionsBuilder.UseMySQL("server=localhost;port=3307;user=root;password=etecjau;database=quiz;")
                 .EnableSensitiveDataLogging()
                 .EnableDetailedErrors()
                 .LogTo(x => Debug.Write(x));
             base.OnConfiguring(optionsBuilder);
         }
 
-        public virtual DbSet<Usuarios> Usuarios { get; set; }
-        public virtual DbSet<Respostas> Respostas { get; set; }
-        public virtual DbSet<Perguntas> Perguntas { get; set; }
+        public virtual DbSet<Usuarios> Usuario { get; set; }
+        public virtual DbSet<Alternativa> Alternativa { get; set; }
+        public virtual DbSet<Perguntas> Pergunta { get; set; }
     }
 }

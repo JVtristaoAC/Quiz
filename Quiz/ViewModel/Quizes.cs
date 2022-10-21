@@ -22,22 +22,22 @@ namespace Quiz.ViewModel
 
         public List<Perguntas> SelectPerguntas()
         {
-            return context.Perguntas.AsNoTracking()
+            return context.Pergunta.AsNoTracking()
                 .Select(p => new Perguntas
                 {
                     Id = p.Id,
-                    Pergunta = p.Pergunta,
+                    descricao = p.descricao,
                 }).ToList();
         }
 
-        public List<Respostas> SelectRespostas()
+        public List<Alternativa> SelectRespostas()
         {
-            return context.Respostas.AsNoTracking()
-                .Select(r => new Respostas
+            return context.Alternativa.AsNoTracking()
+                .Select(r => new Alternativa
                 {
                     Id = r.Id,
-                    Resposta = r.Resposta,
-                    Certa = r.Certa,
+                    Descricao = r.Descricao,
+                    Correta = r.Correta,
                     ID_pergunta = r.ID_pergunta,
                     
                 }).ToList();
