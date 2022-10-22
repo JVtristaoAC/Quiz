@@ -23,7 +23,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Content="Quiz de Física" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold"/>
+        <Label Content="Quiz" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="100" Grid.ColumnSpan="2" Grid.Row="0" FontWeight="Bold"/>
 
         <Label Content="Nome:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="50" Grid.Column="0" Grid.Row="1" Margin="20"/>
         <TextBox Grid.Row="1" Grid.Column="1" x:Name="ent_name" Width="1000" FontSize="30" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center" Background="WhiteSmoke" VerticalContentAlignment="Center"/>

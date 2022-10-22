@@ -26,24 +26,13 @@ namespace Quiz.View
     /// </summary>
     public partial class Quiz1 : Window
     {
-        //List<Perguntas> Lista_Pergunta = new List<Perguntas>();
-        //List<Alternativa> Lista_Alternativa = new List<Alternativa>();
-
         string VFresposta1;
         string VFresposta2;
         string VFresposta3;
         string VFresposta4;
-
-
-
-
-
+        int pergunta = 1;
 
         List<PerguntaSorteada> perguntas_sorteadas = new List<PerguntaSorteada>();
-
-
-
-
 
 
         int Pontos;
@@ -60,12 +49,6 @@ namespace Quiz.View
             int qnt_questoes = 0;
 
             Perguntas? pergunta_sorteada;
-
-            /*Alternativa? alternativa_sorteada1;
-            Alternativa? alternativa_sorteada2;
-            Alternativa? alternativa_sorteada3;
-            Alternativa? alternativa_sorteada4;*/
-
             do
             {
                 pergunta_sorteada = context.Pergunta.FromSqlRaw("SELECT * FROM pergunta ORDER BY RAND()").ToList<Perguntas>().FirstOrDefault();
@@ -74,10 +57,7 @@ namespace Quiz.View
                 {
                     if (perguntas_sorteadas.Where(i => i.Id == pergunta_sorteada.Id).Count() == 0)
                     {
-                        /*alternativa_sorteada1 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().FirstOrDefault();
-                        alternativa_sorteada2 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().FirstOrDefault();
-                        alternativa_sorteada3 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().FirstOrDefault();
-                        alternativa_sorteada4 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().FirstOrDefault();*/
+                        
 
                         perguntas_sorteadas.Add(new PerguntaSorteada
                         {
@@ -85,166 +65,181 @@ namespace Quiz.View
                             Descricao = pergunta_sorteada.descricao,
                             Lista_alternativas = context.Alternativa.Where(i => i.ID_pergunta == pergunta_sorteada.Id).ToList<Alternativa>()
 
-                            /*Lista_alternativas = new List<Alternativa>()
-                            {
-                                alternativa_sorteada1,
-                                alternativa_sorteada2,
-                                alternativa_sorteada3,
-                                alternativa_sorteada4
-                            }*/
                         });
 
                         qnt_questoes++;
                     }
                 }
 
-                MessageBox.Show(perguntas_sorteadas.ToString());
+               
 
-            } while (qnt_questoes < 10);
+            } while (qnt_questoes != 12);
 
-            //Console.Clear();
-            
-
-           
-
-
-
-
-
-
-
-
-            /*lbl_Pergunta.Content = pergunta_sorteada.descricao;
-
-
-            rd_Resposta1.Content = alternativa_sorteada1.Descricao;
-            VFresposta1 = alternativa_sorteada1.Correta;
-
-
-            rd_Resposta2.Content = alternativa_sorteada2.Descricao;
-            VFresposta2 = alternativa_sorteada2.Correta;
-
-
-            rd_Resposta3.Content = alternativa_sorteada3.Descricao;
-            VFresposta3 = alternativa_sorteada3.Correta;
-
-
-            rd_Resposta4.Content = alternativa_sorteada4.Descricao;
-            VFresposta4 = alternativa_sorteada4.Correta;*/
-
+            Atualizar_Quiz(1);
         }
 
-        public void Atualizar_Quiz()
+        public void Atualizar_Quiz(int pergunta)
         {
-           // MessageBox.Show(perguntas_sorteadas.Count.ToString());
-
-            Console.WriteLine("________________________________________________________________________________________________________________________________________");
-            Console.WriteLine(perguntas_sorteadas.Count);
-            Console.WriteLine("________________________________________________________________________________________________________________________________________");
+            PerguntaSorteada pergunta_da_vez = perguntas_sorteadas[pergunta];
+            var aternativa_da_vez = perguntas_sorteadas[pergunta].Lista_alternativas;
 
 
+            lbl_Pergunta.Text = pergunta_da_vez.Descricao;
 
 
-            /*using var context = new QuizContext();
-            pergunta_sorteada = context.Pergunta.FromSqlRaw("SELECT * FROM pergunta ORDER BY RAND()").ToList<Perguntas>().First();
-            alternativa_sorteada1 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().First();
-            alternativa_sorteada2 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().First();
-            alternativa_sorteada3 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().First();
-            alternativa_sorteada4 = context.Alternativa.FromSqlRaw("SELECT * FROM alternativa WHERE ID_pergunta = {0} ORDER BY RAND() ", pergunta_sorteada.Id).ToList<Alternativa>().First();*/
+                rd_Resposta1.Content = aternativa_da_vez[0].Descricao;
+                VFresposta1 = aternativa_da_vez[0].Correta;
 
-            //if (Lista_Pergunta.Contains(pergunta_sorteada))
-            //{
+                rd_Resposta2.Content = aternativa_da_vez[1].Descricao;
+                VFresposta2 = aternativa_da_vez[1].Correta;
 
-            PerguntaSorteada pergunta_da_vez = perguntas_sorteadas[0];
+                rd_Resposta3.Content = aternativa_da_vez[2].Descricao;
+                VFresposta3 = aternativa_da_vez[2].Correta;
 
-                lbl_Pergunta.Content = pergunta_da_vez.Descricao;
-
-
-                /*rd_Resposta1.Content = alternativa_sorteada1.Descricao;
-                VFresposta1 = alternativa_sorteada1.Correta;
-
-
-                rd_Resposta2.Content = alternativa_sorteada2.Descricao;
-                VFresposta2 = alternativa_sorteada2.Correta;
-
-
-                rd_Resposta3.Content = alternativa_sorteada3.Descricao;
-                VFresposta3 = alternativa_sorteada3.Correta;
-
-
-                rd_Resposta4.Content = alternativa_sorteada4.Descricao;
-                VFresposta4 = alternativa_sorteada4.Correta;*/
-            //}
-
-
+                rd_Resposta4.Content = aternativa_da_vez[3].Descricao;
+                VFresposta4 = aternativa_da_vez[3].Correta;
         }
 
         private void btn_botao_Click(object sender, RoutedEventArgs e)
         {
+            if (pergunta == 10)
+            {
+                if (rd_Resposta1.IsChecked == true)
+                {
+                    if (VFresposta1 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+                }
+                else if (rd_Resposta2.IsChecked == true)
+                {
+                    if (VFresposta2 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+
+                }
+                else if (rd_Resposta3.IsChecked == true)
+                {
+                    if (VFresposta3 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+
+                }
+                else if (rd_Resposta4.IsChecked == true)
+                {
+                    if (VFresposta4 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+
+                }
+
+            
+           
+            MessageBox.Show("Quiz terminado, você acertou " + Pontos + "/10 Questões");
+            Login login = new Login();
+            login.Show();
+            this.Close();
+            }
+            else
+            {
+                if (rd_Resposta1.IsChecked == true)
+                {
+                    if (VFresposta1 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+                }
+                else if (rd_Resposta2.IsChecked == true)
+                {
+                    if (VFresposta2 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+
+                }
+                else if (rd_Resposta3.IsChecked == true)
+                {
+                    if (VFresposta3 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+
+                }
+                else if (rd_Resposta4.IsChecked == true)
+                {
+                    if (VFresposta4 == "V")
+                    {
+                        MessageBox.Show("Você acertou");
+                        Pontos++;
+                        pergunta++;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Você errou");
+                        pergunta++;
+                    }
+
+                }
+                Atualizar_Quiz(pergunta);
+            }
 
 
 
-            //Lista_Pergunta.Add(pergunta_sorteada);
-            //Lista_Alternativa.Add(alternativa_sorteada1);
-            //Lista_Alternativa.Add(alternativa_sorteada2);
-            //Lista_Alternativa.Add(alternativa_sorteada3);
-            //Lista_Alternativa.Add(alternativa_sorteada4);
-            if (rd_Resposta1.IsChecked == true)
-            {
-                if (VFresposta1 == "V")
-                {
-                    MessageBox.Show("Resposta Certa");
-                    Pontos++;
-                    Atualizar_Quiz();
-                }
-                else
-                {
-                    MessageBox.Show("Resposta Errada");
-                    Atualizar_Quiz();
-                }
-            }
-            else if (rd_Resposta2.IsChecked == true)
-            {
-                if (VFresposta2 == "V")
-                {
-                    MessageBox.Show("Resposta Certa");
-                    Pontos++;
-                    Atualizar_Quiz();
-                }
-                else
-                {
-                    MessageBox.Show("Resposta Errada");
-                    Atualizar_Quiz();
-                }
-            }
-            else if (rd_Resposta3.IsChecked == true)
-            {
-                if (VFresposta3 == "V")
-                {
-                    MessageBox.Show("Resposta Certa");
-                    Pontos++;
-                    Atualizar_Quiz();
-                }
-                else
-                {
-                    MessageBox.Show("Resposta Errada");
-                    Atualizar_Quiz();
-                }
-            }
-            else if (rd_Resposta4.IsChecked == true)
-            {
-                if (VFresposta4 == "V")
-                {
-                    MessageBox.Show("Resposta Certa");
-                    Pontos++;
-                    Atualizar_Quiz();
-                }
-                else
-                {
-                    MessageBox.Show("Resposta Errada");
-                    Atualizar_Quiz();
-                }
-            }
+
+           
+               
 
         }
     }
