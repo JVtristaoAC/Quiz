@@ -33,12 +33,13 @@ namespace Quiz.View
 
             using var context = new QuizContext();
             //context.Database.EnsureDeleted();
-            //context.Database.EnsureCreated();
+            context.Database.EnsureCreated();
             context.Usuario.Add(new Usuarios
             {
                 Nome = ent_name.Text,
                 Email = ent_email.Text,
-                Telefone = ent_telefone.Text
+                Telefone = ent_telefone.Text,
+                Serie = ent_serie.Text,
 
             });
             context.SaveChanges();
